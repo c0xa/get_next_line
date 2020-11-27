@@ -48,6 +48,8 @@ char        *ft_strjoin(char *s1, char *s2, int len2)
         i++;
     }
     buf[i] = '\0';
+    if (s1)
+        free(s1);
     return (buf);
 }
 
@@ -73,15 +75,21 @@ char        *stream(char **line, char *buf)
     i = 0;
     len = 0;
     while (buf[len] != '\n' && buf[len])
+    {
         len++;
+    }
     *line = ft_strjoin(*line, buf, len);
     if (!(s = (char*)malloc((BUFFER_SIZE + 1) * sizeof(char))))
         return (NULL);
     if (buf[len] == '\n' && buf[len])
         len++;
     while (buf[len])
+    {
         s[i++] = buf[len++];
+    }
     s[i] = '\0';
+    if (buf)
+        free(buf);
     return (s);
 }
 
@@ -99,8 +107,8 @@ int            writefile(int fd, char **line, char **bufs)
     }
     while ((k = read(fd, *bufs, BUFFER_SIZE)))
     {
-		if (k == -1)
-			return (-1);
+        if (k == -1)
+            return (-1);
         (*bufs)[k] = '\0';
         if ((ft_strchr(*bufs, '\n')))
         {
@@ -115,4 +123,3 @@ int            writefile(int fd, char **line, char **bufs)
         *line = ft_strjoin(*line, *bufs, 0);
     return (0);
 }
-
