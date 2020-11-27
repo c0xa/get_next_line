@@ -48,8 +48,8 @@ char        *ft_strjoin(char *s1, char *s2, int len2)
         i++;
     }
     buf[i] = '\0';
-    if (s1)
-        free(s1);
+    //if (s1)
+       //free(s1);
     return (buf);
 }
 
@@ -88,8 +88,8 @@ char        *stream(char **line, char *buf)
         s[i++] = buf[len++];
     }
     s[i] = '\0';
-    if (buf)
-        free(buf);
+    //if (buf)
+        //free(buf);
     return (s);
 }
 
