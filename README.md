@@ -5,7 +5,7 @@
 - [:uk: ENG](./README.md) - English documentation
 
 # About
-This is programm for read from file written on C.It returns a line read from a
+This is programm for read from file written on C .It returns a line read from a
 file descriptor, without the newline.
 The bonus part
 works with more than one file.
