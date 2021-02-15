@@ -19,7 +19,7 @@ int main()
     char *c;
 
     fd = open("test.txt", O_RDONLY);
-    while (get_next_line(fd, &c) >= 0)
+    while (get_next_line(fd, &c) > 0)
     {
         printf("%s\n", c);
         free(c);
